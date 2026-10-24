@@ -1,0 +1,18 @@
+-- +goose Up
+-- +goose StatementEnd
+-- NOT auto-run. This is a manual snippet to promote a user to ADMIN.
+--
+-- 1. Find the user's auth.id by email:
+--   SELECT id, email FROM auth.users WHERE email = 'ridefar.ke@gmail.com';
+--
+-- 2. Then run (replace the id):
+--   UPDATE profiles SET role = 'admin' WHERE id = '<auth-id>';
+--
+-- Or as a single SQL block (copy the correct id from step 1):
+--
+-- UPDATE profiles
+-- SET role = 'admin'
+-- WHERE id = (SELECT id FROM auth.users WHERE email = 'ridefar.ke@gmail.com');
+
+-- +goose StatementDown
+-- Revert: UPDATE profiles SET role = 'customer' WHERE id = (SELECT id FROM auth.users WHERE email = 'ridefar.ke@gmail.com');

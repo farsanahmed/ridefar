@@ -1,11 +1,8 @@
 # RIDEFAR
 
-Bicycle parts, MTB upgrades, safety gear and workshop tools — stocked in
-Mavueni, Kilifi, Kenya. Built with Next.js (App Router), TypeScript, Tailwind
-CSS v4, Supabase and Vercel. Mobile-first, M-Pesa ready.
+Bicycle parts and accessories for Kenya. Delivery across Kenya. M-Pesa payments.
 
-**Brand:** RIDEFAR · **Currency:** KSh · **Contact:** +254 731 480 504 ·
-ridefar.ke@gmail.com · Instagram & TikTok @ridefar.ke
+Brand: RIDEFAR · Currency: KSh · Contact: +254 731 480 504 · ridefar.ke@gmail.com · Instagram & TikTok @ridefar.ke · Mavueni, Kilifi, Kenya
 
 Design tokens and brand rules live in [`DESIGN.md`](./DESIGN.md).
 
@@ -49,23 +46,16 @@ Commands:
 
 ### Node on this device
 
-`node_modules` lives in a scratch directory because shared storage has no
-execute permission. If `npm install` fails with `EACCES` or a missing
-`node_modules/.bin`, install in a writable directory and copy the result back.
+`node_modules` lives in a scratch directory because shared storage has no execute permission. If `npm install` fails with `EACCES` or a missing `node_modules/.bin`, install in a writable directory and copy the result back.
 
 ---
 
 ## Data rules (non-negotiable)
 
-1. **No fake data.** With an empty database the UI shows empty states. The only
-   sample data is `src/lib/demo/data.ts` and every demo row is labelled
-   **DEMO** in the interface.
-2. **Demo mode is off as soon as Supabase is configured.** It can also be
-   forced with `NEXT_PUBLIC_DEMO_DATA=true|false`.
-3. **Prices are never trusted from the browser.** Totals are recalculated on
-   the server from database rows before an order is created.
-4. **No secrets in client code.** M-Pesa credentials and the Supabase service
-   role key are server-only environment variables.
+1. **No fake data.** With an empty database the UI shows empty states. The only sample data is `src/lib/demo/data.ts` and every demo row is labelled **DEMO** in the interface.
+2. **Demo mode is off as soon as Supabase is configured.** It can also be forced with `NEXT_PUBLIC_DEMO_DATA=true|false`.
+3. **Prices are never trusted from the browser.** Totals are recalculated on the server from database rows before an order is created.
+4. **No secrets in client code.** M-Pesa credentials and the Supabase service role key are server-only environment variables.
 5. **Orders are marked `PAID` only after a verified Safaricom callback.**
 
 ### Removing the demo data

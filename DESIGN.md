@@ -1,8 +1,6 @@
 # RIDEFAR — Design System
 
 Premium dark charcoal, white text, small red touches. Technical, sporty, minimal.
-Every screen in this project reads from this file. If a colour, size or radius
-is not listed here, it does not exist.
 
 ---
 
@@ -12,9 +10,9 @@ is not listed here, it does not exist.
 |---|---|
 | Name | **RIDEFAR** |
 | Line | RIDE FURTHER. RIDE BETTER. |
-| Market | Kenya (KSh), M-Pesa first, mobile-first |
+| Market | Kenya (KSh) |
 | Tone | Direct, technical, unhurried. Short sentences. No exclamation marks. |
-| Never | Stock-photo smiles, "shop now!!!", fake urgency, emoji in copy |
+| Never | Stock-photo smiles, fake urgency, emoji in copy |
 
 Copy rules:
 
@@ -27,7 +25,7 @@ Copy rules:
 
 ## 2. Colour tokens
 
-### Surfaces (dark only — the brand is dark by default, not "dark mode")
+### Surfaces (dark only)
 
 | Token | Hex | Use |
 |---|---|---|
@@ -51,7 +49,7 @@ Copy rules:
 |---|---|---|
 | `--color-brand` | `#E10600` | Primary button fill, active nav, price accent |
 | `--color-brand-hi` | `#FF1E12` | Hover / pressed fill |
-| `--color-brand-ink` | `#FF4438` | Small red **text** on dark (AA-safe) |
+| `--color-brand-ink` | `#FF4438` | Small red text on dark (AA-safe) |
 | `--color-brand-soft` | `rgba(225,6,0,0.12)` | Red wash behind badges, hero glow |
 
 ### Status
@@ -61,9 +59,7 @@ Copy rules:
 | `--color-warn` | `#F5A524` | Low-stock pill, pending payment |
 | `--color-danger` | `#F87171` | Error text, failed payment |
 
-No other hues. Green is deliberately absent — stock state is communicated with
-red (low), amber (low/medium) and neutral grey (out of stock), never with a
-colour that would fight the brand red.
+No other hues. Green is deliberately absent — stock state is communicated with red (low), amber (low/medium) and neutral grey (out of stock).
 
 ### Contrast check (WCAG 2.1, on `--color-canvas` #0A0A0B)
 
@@ -76,8 +72,7 @@ colour that would fight the brand red.
 | `--color-brand` #E10600 fill + white text | 5.0 : 1 | AA | AAA |
 | `--color-brand` #E10600 text on canvas | 4.0 : 1 | ✗ (large only) | AA |
 
-Rule: red text on dark always uses `--color-brand-ink`. Raw `--color-brand` is a
-fill colour, or large/bold text only.
+Rule: red text on dark always uses `--color-brand-ink`. Raw `--color-brand` is a fill colour, or large/bold text only.
 
 ---
 
@@ -85,9 +80,9 @@ fill colour, or large/bold text only.
 
 | Role | Face | Weights | Notes |
 |---|---|---|---|
-| Display | **Barlow Condensed** | 600, 700 | Wordmark, hero, section titles. Uppercase, tight tracking, narrow — race-kit energy. |
+| Display | **Barlow Condensed** | 600, 700 | Wordmark, hero, section titles. Uppercase, tight tracking, narrow. |
 | Body / UI | **Inter** | 400, 500, 600 | Everything that is read, not shouted. |
-| Data | **JetBrains Mono** | 400, 500 | SKU, price, stock counters, spec values, order IDs. |
+| Data | **JetBrains Mono** | 400, 500 | SKU, price, stock counters, spec values. |
 
 Type scale (mobile-first, `clamp()` where fluid):
 
@@ -101,8 +96,7 @@ Type scale (mobile-first, `clamp()` where fluid):
 | `text-small` | `0.8125rem` / 1.45 | Secondary |
 | `text-micro` | `0.6875rem` / 1.2 | Labels — uppercase, tracking `0.18em` |
 
-Rules: one display face per screen. Body text never below 13px. Prices always
-mono, tabular, `KSh` suffix, red.
+Rules: one display face per screen. Body text never below 13px. Prices always mono, tabular, `KSh` suffix, red.
 
 ---
 

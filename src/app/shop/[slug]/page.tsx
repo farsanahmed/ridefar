@@ -25,7 +25,7 @@ export async function generateMetadata({
 export default async function ProductPage({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ slug: string };
 }) {
   const { slug } = await params;
   const products = await getFeaturedProducts(60);
