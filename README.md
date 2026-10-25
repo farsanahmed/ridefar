@@ -13,7 +13,7 @@ Design tokens and brand rules live in [`DESIGN.md`](./DESIGN.md).
 | Phase | Scope | State |
 |---|---|---|
 | 1 | UI design system + homepage | **Done** |
-| 2 | Database schema + RLS | Next |
+| 2 | Database schema + RLS | **Done** |
 | 3 | Auth | Next |
 | 4 | Products + shop + search | Next |
 | 5 | Cart + wishlist | Next |
