@@ -5,10 +5,10 @@
 
 export const site = {
   name: "RIDEFAR",
-  legalName: "RIDEFAR Cycling Parts",
+  legalName: "RIDEFAR",
   tagline: "RIDE FURTHER. RIDE BETTER.",
   description:
-    "Genuine bicycle parts, MTB upgrades, safety gear and workshop tools. Stocked in Kilifi, delivered across Kenya with M-Pesa.",
+    "Bicycle parts and accessories for Kenya. Delivery across Kenya. M-Pesa payments accepted.",
   phone: "+254 731 480 504",
   phoneHref: "tel:+254731480504",
   whatsappHref: "https://wa.me/254731480504",
@@ -23,7 +23,6 @@ export const site = {
   },
   currency: "KSh",
   currencyCode: "KES",
-  hours: "Mon – Sat, 8:00am – 6:00pm EAT",
 } as const;
 
 export type NavItem = {
@@ -122,7 +121,9 @@ export const categoryList: {
   },
 ];
 
-/** Technical line-art used for category and product artwork. */
+/**
+ * Technical line-art used for category and product artwork.
+ */
 export type ArtKind =
   | "chainring"
   | "fork"

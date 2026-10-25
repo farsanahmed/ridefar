@@ -5,23 +5,23 @@ import { Section, SectionHeading } from "@/components/ui/Section";
 const reasons: { icon: IconName; title: string; body: string }[] = [
   {
     icon: "shield",
-    title: "Genuine parts, honestly priced",
-    body: "We stock the brands riders actually trust — Shimano, Maxxis, Fox, SKS — and list the real price in shillings. No inflated “original” pricing.",
+    title: "Parts honestly priced",
+    body: "We list the real price in shillings. No inflated "original" pricing.",
   },
   {
     icon: "truck",
     title: "Kilifi to your county",
-    body: "Orders leave Mavueni the same day for Mombasa, Kilifi, Malindi and the rest of Kenya, with delivery updates on your order page.",
+    body: "Orders deliver across Kenya with tracking updates.",
   },
   {
     icon: "wallet",
     title: "M-Pesa in seconds",
-    body: "Pay straight from your Safaricom phone. The order is only marked paid once Safaricom confirms the payment — never before.",
+    body: "Pay straight from your Safaricom phone. The order is only marked paid once Safaricom confirms.",
   },
   {
     icon: "headset",
-    title: "Workshop advice, not sales talk",
-    body: "Tell us your bike and the problem. We will tell you the part you need — and the part you do not need to buy.",
+    title: "Contact us",
+    body: "Call the shop or send us a message on WhatsApp.",
   },
 ];
 
@@ -32,7 +32,7 @@ export function WhyRidefar() {
         <SectionHeading
           eyebrow="Why RIDEFAR"
           title="Built by riders, stocked in Kilifi"
-          description="Four things we refuse to compromise on when it comes to the parts that keep your bike running."
+          description="Four things we focus on when it comes to the parts that keep your bike running."
         />
 
         <ul className="grid gap-3 md:grid-cols-2 md:gap-4 lg:grid-cols-4">
@@ -70,8 +70,7 @@ export function WhyRidefar() {
                 Call the shop on{" "}
                 <a
                   href={site.phoneHref}
-                  className="tabular font-mono text-brand-ink underline underline-offset-4"
-                >
+                  className="tabular font-mono text-brand-ink underline underline-offset-4">
                   {site.phone}
                 </a>{" "}
                 or send us a message on WhatsApp.
@@ -82,7 +81,7 @@ export function WhyRidefar() {
             href={site.whatsappHref}
             target="_blank"
             rel="noreferrer noopener"
-            className="inline-flex h-11 shrink-0 items-center justify-center gap-2 rounded-xs border border-line-2 px-5 text-xs font-semibold uppercase tracking-[0.14em] text-ink transition-colors hover:border-ink"
+            className="inline-flex h-11 shrink-0 items-center justify-center rounded-xs border border-line-2 px-5 text-xs font-semibold uppercase tracking-[0.14em] text-ink transition-colors hover:border-ink"
           >
             <Icon name="headset" className="size-4" />
             WhatsApp us

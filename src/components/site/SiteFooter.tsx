@@ -12,8 +12,7 @@ export function SiteFooter() {
         <div className="md:col-span-4">
           <Wordmark />
           <p className="mt-4 max-w-xs text-small text-ink-2">
-            Genuine bicycle parts, MTB upgrades, safety gear and workshop tools —
-            stocked in Kilifi and delivered across Kenya.
+            Bicycle parts and accessories for Kenya. Delivery across Kenya. M-Pesa payments accepted.
           </p>
           <p className="label mt-6 flex items-center gap-2 text-brand-ink">
             <span aria-hidden="true" className="inline-block h-2.5 w-2.5 bg-brand" />
@@ -140,7 +139,7 @@ export function SiteFooter() {
           </p>
           <p className="flex flex-wrap items-center gap-x-4 gap-y-1">
             <span className="flex items-center gap-1.5">
-              <Icon name="wallet" className="size-3.5" /> M-Pesa &amp; cash on delivery
+              <Icon name="wallet" className="size-3.5" /> M-Pesa
             </span>
             <span>Policy pages are placeholders — needs owner review.</span>
           </p>

@@ -1,5 +1,6 @@
 -- +goose Up
 -- +goose StatementBegin
+CREATE TYPE role_enum AS ENUM ('customer', 'admin');
 CREATE TYPE status_enum AS ENUM ('pending', 'processing', 'paid', 'failed', 'cancelled', 'expired');
 CREATE TYPE stock_state_enum AS ENUM ('in', 'low', 'out');
 CREATE TYPE order_status_enum AS ENUM ('pending', 'paid', 'failed', 'cancelled', 'expired');
@@ -7,7 +8,7 @@ CREATE TYPE order_status_enum AS ENUM ('pending', 'paid', 'failed', 'cancelled',
 -- profiles table — one row per auth.user, role CUSTOMER or ADMIN
 CREATE TABLE profiles (
   id UUID REFERENCES auth.users ON DELETE CASCADE PRIMARY KEY,
-  role status_enum NOT NULL DEFAULT 'customer',
+  role role_enum NOT NULL DEFAULT 'customer',
   full_name TEXT,
   phone TEXT,
   address TEXT,
@@ -17,6 +18,9 @@ CREATE TABLE profiles (
   updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
 );
 
+-- Category constraint: sort_order must be >= 0
+ALTER TABLE profiles ADD CONSTRAINT chk_profiles_sort_order CHECK (false); -- placeholder; actual sort is on categories
+
 -- categories — nested (parent_id is self-referencing for sub-categories)
 CREATE TABLE categories (
   id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
@@ -24,14 +28,13 @@ CREATE TABLE categories (
   name TEXT NOT NULL,
   description TEXT,
   parent_id UUID REFERENCES categories(id),
-  sort_order INTEGER NOT NULL DEFAULT 0,
+  sort_order INTEGER NOT NULL DEFAULT 0 CHECK (sort_order >= 0),
   is_active BOOLEAN NOT NULL DEFAULT true,
   created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
   updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
 );
 
 -- CHECK: parent cannot be own descendant (enforced by app code / trigger in later migration)
--- CHECK: sort_order >= 0
 
 -- products
 CREATE TABLE products (
@@ -69,7 +72,7 @@ CREATE TABLE product_variants (
   id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
   product_id UUID REFERENCES products(id) ON DELETE CASCADE,
   sku_suffix TEXT, -- appended to base SKU
-  option_name TEXT, -- e.g. "Red", "M", "26\""
+  option_name TEXT, -- e.g. "Red", "M", "26"""
   option_value TEXT, -- e.g. "#e10600", "Large"
   price_adjustment_cents INTEGER NOT NULL DEFAULT 0 CHECK (price_adjustment_cents >= 0),
   stock_adjustment INTEGER NOT NULL DEFAULT 0 CHECK (stock_adjustment >= 0),
@@ -115,6 +118,7 @@ CREATE TABLE wishlist_items (
   variant_id UUID REFERENCES product_variants(id),
   quantity INTEGER NOT NULL DEFAULT 1 CHECK (quantity > 0),
   created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+  updated_at TIMESTAMPTZ NOT NULL DEFAULT now(),
   CONSTRAINT uq_wishlist_item_wishlist_product UNIQUE (wishlist_id, product_id, variant_id)
 );
 
@@ -147,7 +151,7 @@ CREATE TABLE order_items (
   created_at TIMESTAMPTZ NOT NULL DEFAULT now()
 );
 
--- payments — server-only, read by admin only
+-- payments — server-only, read by admin only via is_admin() check
 CREATE TABLE payments (
   id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
   order_id UUID REFERENCES orders(id) ON DELETE CASCADE UNIQUE NOT NULL,
@@ -190,8 +194,8 @@ CREATE TABLE promotions (
 CREATE TABLE order_status_history (
   id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
   order_id UUID REFERENCES orders(id) ON DELETE CASCADE NOT NULL,
-  from_status status_enum,
-  to_status status_enum NOT NULL,
+  from_status order_status_enum,
+  to_status order_status_enum NOT NULL,
   changed_by UUID REFERENCES auth.users, -- admin user who made the change
   changed_at TIMESTAMPTZ NOT NULL DEFAULT now(),
   notes TEXT

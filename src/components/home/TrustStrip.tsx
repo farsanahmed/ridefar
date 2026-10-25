@@ -1,10 +1,10 @@
 import { Icon, type IconName } from "@/components/ui/Icon";
 
 const items: { icon: IconName; title: string; detail: string }[] = [
-  { icon: "shield", title: "Genuine stock", detail: "No counterfeit parts" },
-  { icon: "wallet", title: "M-Pesa & cash", detail: "Pay how you ride" },
-  { icon: "truck", title: "Kilifi → countrywide", detail: "Tracked delivery" },
-  { icon: "headset", title: "Workshop advice", detail: "Real fitment help" },
+  { icon: "shield", title: "Parts honestly priced", detail: "We list the real price in shillings." },
+  { icon: "truck", title: "Kilifi to your country", detail: "Tracked delivery across Kenya." },
+  { icon: "wallet", title: "M-Pesa in seconds", detail: "Pay from your Safaricom phone." },
+  { icon: "headset", title: "Contact us", detail: "Call the shop or WhatsApp us." },
 ];
 
 export function TrustStrip() {

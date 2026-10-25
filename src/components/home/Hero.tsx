@@ -21,7 +21,7 @@ export function Hero() {
           <div className="md:col-span-7">
             <p className="label flex items-center gap-2 text-brand-ink">
               <span aria-hidden="true" className="inline-block h-2.5 w-2.5 bg-brand" />
-              Bicycle parts &amp; cycling gear · Kenya
+              Bicycle parts & cycling gear · Kenya
             </p>
 
             <h1 className="mt-4 font-display text-display uppercase text-ink">
@@ -31,9 +31,7 @@ export function Hero() {
             </h1>
 
             <p className="mt-4 max-w-md text-body text-ink-2">
-              Genuine drivetrain, brake, MTB and safety-gear stock for Kenyan
-              riders. Priced in {site.currency}, paid by M-Pesa, delivered from
-              Kilifi to your door.
+              Bicycle parts and accessories for Kenya. Priced in {site.currency}, paid by M-Pesa.
             </p>
 
             <div className="mt-6 flex flex-wrap items-center gap-3">
@@ -52,12 +50,10 @@ export function Hero() {
                 <Icon name="wallet" className="size-3.5 text-brand-ink" /> M-Pesa
               </li>
               <li className="flex items-center gap-1.5">
-                <Icon name="truck" className="size-3.5 text-brand-ink" /> Nationwide
-                delivery
+                <Icon name="truck" className="size-3.5 text-brand-ink" /> Nationwide delivery
               </li>
               <li className="flex items-center gap-1.5">
-                <Icon name="pin" className="size-3.5 text-brand-ink" /> Mavueni,
-                Kilifi
+                <Icon name="pin" className="size-3.5 text-brand-ink" /> Mavueni, Kilifi
               </li>
             </ul>
           </div>
@@ -72,8 +68,7 @@ export function Hero() {
               <div className="relative border-t border-line bg-surface-2/70 p-4">
                 <p className="label text-brand-ink">In stock now</p>
                 <p className="mt-1 text-small text-ink-2">
-                  Brakes, drivetrain, tyres, helmets and workshop tools ready for
-                  same-day dispatch from Kilifi.
+                  Brakes, drivetrain, tyres, helmets and workshop tools ready for dispatch from Kilifi.
                 </p>
               </div>
             </div>
